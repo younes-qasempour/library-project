@@ -20,7 +20,7 @@ app = Flask(__name__)
 class Base(DeclarativeBase):
     pass
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///new-books-collection.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///books-collection.db"
 
 # Create the extension
 db = SQLAlchemy(model_class=Base)
@@ -44,8 +44,8 @@ class Book(db.Model):
 with app.app_context():
     db.create_all()
 
-# CREATE RECORD
-with app.app_context():
-    new_book = Book(id=1, title="Harry Potter", author="J. K. Rowling", rating=9.3)
-    db.session.add(new_book)
-    db.session.commit()
+# # CREATE RECORD
+# with app.app_context():
+#     new_book = Book(id=1, title="Harry Potter", author="J. K. Rowling", rating=9.3)
+#     db.session.add(new_book)
+#     db.session.commit()
